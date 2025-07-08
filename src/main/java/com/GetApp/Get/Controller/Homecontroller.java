@@ -8,6 +8,7 @@ public class Homecontroller {
     public String Home(){
         System.out.println("hello");
         return "index" ;
+
     }
 
 }
