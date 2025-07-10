@@ -12,7 +12,7 @@ public class Booking {
     private LocalDateTime startTime;
     private LocalDateTime endTime;
     private Double totalAmount;
-    private String status;
+    private String status;   // booked oning completed cancel failed
 
     @ManyToOne
     @JoinColumn(name = "user_id")

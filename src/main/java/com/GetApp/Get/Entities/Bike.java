@@ -2,7 +2,6 @@ package com.GetApp.Get.Entities;
 
 import jakarta.persistence.*;
 
-import javax.xml.stream.Location;
 import java.util.List;
 
 @Entity

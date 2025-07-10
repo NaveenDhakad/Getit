@@ -10,7 +10,7 @@ public class BikeCategory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long categoryId;
 
-    private String categoryName;
+    private String categoryName; // electric  // petrol // hybrid  // hydrogen
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
     private List<Bike> bikes;
