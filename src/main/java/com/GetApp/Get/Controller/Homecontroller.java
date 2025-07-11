@@ -35,7 +35,7 @@ public class Homecontroller {
     public String Login(Model model) {
         model.addAttribute("loginData", new User());
         model.addAttribute("formType" , "login") ;
-        System.out.println("success");
+
 
         return "signupLogin"; // ✅ This is your actual login+signup page
 
