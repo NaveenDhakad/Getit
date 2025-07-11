@@ -68,7 +68,15 @@
          color: #fff;
          text-shadow: 1px 1px 2px black;
        }
+.default-pulse {
+  animation: pulse 1.5s ease-in-out infinite;
+}
 
+@keyframes pulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
 
     </style>
 </head>
@@ -81,7 +89,7 @@
 
         <!-- Left Section: Logo and Menu Button -->
         <div class="d-flex align-items-center gap-2 flex-grow-1">
-            <i class="bi bi-cart4 fs-3 text-success"></i>
+            <i class="bi bi-cart4 fs-3 text-success default-pulse"></i>
             <a class="navbar-brand mb-0 me-3" href="#" style="color: #198754;">Getit</a>
 
             <!-- Menu button for small screens -->

@@ -30,13 +30,16 @@ public class Homecontroller {
     }
     @GetMapping("/login")
     public String Login(Model model) {
+        model.addAttribute("loginData", new User());
         model.addAttribute("formType" , "login") ;
         return "signupLogin" ;
+
     }
     @PostMapping("/register")
-public String RegisterHandle(@Valid @ModelAttribute("loginData") User user , Model model , BindingResult result) {
-if(result.hasErrors()){
-    model.addAttribute("formType", "register");
+public String RegisterHandle(@Valid @ModelAttribute("loginData") User user,  BindingResult result , Model model ) {
+        model.addAttribute("formType", "register");
+        if(result.hasErrors()){
+
     System.out.println(result);
     return "signupLogin" ;
 }

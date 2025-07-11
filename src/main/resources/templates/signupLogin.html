@@ -492,8 +492,12 @@
 
                     <h2 class="title animation text-center" style="--i:17; --j:0; ">Sign Up</h2>
                     <form th:action="@{/register}" method="post" th:object="${loginData}">
-                        <div class="input-box animation" style="--i:18; --j:1">
-                            <input  type="text" name ="name" th:value="${loginData.name}"  required>
+                        <div class="input-box animation"  style="--i:18; --j:1">
+                            <input  type="text" name ="name" th:value="${loginData.name}"  th:classappend="${#fields.hasErrors('name')} ? 'is-invalid' : ''"    required>
+
+                            <div th:each="e : ${#fields.errors('name')}" th:text="${e}" style="font-size: 12px;" id="validationServer03Feedback" class="invalid-feedback">
+
+                            </div>
                             <label>Username</label>
                             <i class="bx bxs-user"></i>
                         </div>
@@ -517,7 +521,6 @@
                        <div class="input-box animation" style="--i:18; --j:1">
                             <input type="text" name="address"  th:value="${loginData.address}"  required>
                             <label>Address</label>
-                            <p th:each="e:${#fields.errors('name')}" th:text="${e}"></p>
                             <i class="bx bxs-location bx-tada " style='color:#000000'></i>
                         </div>
                         <button type="submit" class="btn-custom animation" style="--i:21; --j:4">Sign Up</button>
