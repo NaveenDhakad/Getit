@@ -14,7 +14,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
-    @Size(min = 3, max = 12, message = "UserName must be between 3 and 12 characters")
+    @Size(min = 3, max = 20, message = "UserName must be between 3 and 20 characters")
     private String name;
     @Column(unique = true)
     @Pattern(regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$", message = "Invalid email format")
