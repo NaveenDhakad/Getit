@@ -3,11 +3,13 @@ package com.GetApp.Get.Entities;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 import java.util.List;
 
 @Entity
+@Table(name = "user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,6 +17,7 @@ public class User {
     @Size(min = 3, max = 12, message = "UserName must be between 3 and 12 characters")
     private String name;
     @Column(unique = true)
+    @Pattern(regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$", message = "Invalid email format")
     private String email;
     private String password;
     private String phone;
@@ -31,6 +34,7 @@ public class User {
     public User(Long userId, String name, String email, String password, String phone, String address, List<Booking> bookings) {
         this.userId = userId;
         this.name = name;
+
         this.email = email;
         this.password = password;
         this.phone = phone;

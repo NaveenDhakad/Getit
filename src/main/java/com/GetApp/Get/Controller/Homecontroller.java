@@ -3,6 +3,7 @@ import com.GetApp.Get.Dao.UserRepository;
 import com.GetApp.Get.Entities.User;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class Homecontroller {
+    @Autowired
+    BCryptPasswordEncoder bCryptPasswordEncoder ;
     @Autowired
     private UserRepository userRepository ;
 
@@ -32,12 +35,16 @@ public class Homecontroller {
     public String Login(Model model) {
         model.addAttribute("loginData", new User());
         model.addAttribute("formType" , "login") ;
-        return "signupLogin" ;
+        System.out.println("success");
+
+        return "signupLogin"; // ✅ This is your actual login+signup page
+
 
     }
     @PostMapping("/register")
 public String RegisterHandle(@Valid @ModelAttribute("loginData") User user,  BindingResult result , Model model ) {
         model.addAttribute("formType", "register");
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         if(result.hasErrors()){
 
     System.out.println(result);
@@ -52,6 +59,5 @@ if (userRepository.existsByEmail(user.getEmail())) {
 userRepository.save(user) ;
         return "index" ;
 }
-
 
 }
