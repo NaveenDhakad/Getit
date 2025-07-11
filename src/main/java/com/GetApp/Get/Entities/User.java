@@ -1,6 +1,7 @@
 package com.GetApp.Get.Entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 
 import java.util.List;
 
@@ -9,8 +10,9 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
-
+     @Size(min = 3 ,max = 12 ,message = "UserName Must be Between 3-12 !")
     private String name;
+    @Column(unique = true)
     private String email;
     private String password;
     private String phone;
