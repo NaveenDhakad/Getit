@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="nav">
+<head>
+    <meta charset="UTF-8">
+    <title>Every link is here And Navbar</title>
+  <style>
+    .default-pulse {
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%   { transform: scale(1); }
+      50%  { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container px-4 px-lg-5 d-flex align-items-center justify-content-between flex-wrap gap-3">
+
+    <!-- Left Section: Logo and Menu Button -->
+    <div class="d-flex align-items-center gap-2 flex-grow-1">
+      <i class="bi bi-cart4 fs-3 text-success default-pulse"></i>
+      <a class="navbar-brand mb-0 me-3" href="#" style="color: #198754;">Getit</a>
+
+      <!-- Menu button for small screens -->
+      <div class="dropdown d-lg-none ms-auto">
+        <button class="btn btn-success btn-sm" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-list text-white fs-5"></i>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><a class="dropdown-item" href="#"><i class="bi bi-bell-fill text-success me-2"></i>Notification</a></li>
+          <li><a class="dropdown-item" href="#"><i class="bi bi-box-seam text-success me-2"></i>My Orders</a></li>
+          <li><a class="dropdown-item" href="#"><i class="bi bi-cart text-success me-2"></i>Cart</a></li>
+          <li><a class="dropdown-item" href="#"><i class="bi bi-person-circle text-success me-2"></i>Sign Up</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Center: Search Bar -->
+    <form class="d-flex flex-grow-1" style="max-width: 600px;">
+      <input class="form-control me-2" type="search" placeholder="Search for products" aria-label="Search"
+             style="height: 38px;">
+      <button class="btn btn-success px-3" type="submit">Search</button>
+    </form>
+
+    <!-- Right: Desktop Icons -->
+    <ul class="navbar-nav d-none d-lg-flex flex-row gap-3 ms-2">
+      <li class="nav-item">
+        <a href="#" class="nav-link icon-label">
+          <i class="bi bi-bell-fill"></i>
+          Notification
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link icon-label">
+          <i class="bi bi-box-seam"></i>
+          My Orders
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link icon-label">
+          <i class="bi bi-cart"></i>
+          Cart
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link icon-label">
+          <i class="bi bi-person-circle"></i>
+          Sign Up
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Secondary Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-top border-bottom">
+  <div class="container px-4 px-lg-5">
+    <ul class="navbar-nav d-flex flex-row gap-3 flex-wrap">
+      <li class="nav-item"><a class="nav-link" href="#">All Categories</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Shop</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Stores</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Mega menu</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Pages</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Account</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Docs</a></li>
+    </ul>
+  </div>
+</nav>
+</body>
+</html>
