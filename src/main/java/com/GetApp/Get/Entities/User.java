@@ -33,12 +33,12 @@ public class User {
     @NotBlank(message = "Password is required")
     private String password;
 
-    @Column(name = "first_name", nullable = false, length = 50)
-    @NotBlank(message = "First name is required")
+    @Column(name = "first_name", nullable = true, length = 50)
+//    @NotBlank(message = "First name is required")
     private String firstName;
 
-    @Column(name = "last_name", nullable = false, length = 50)
-    @NotBlank(message = "Last name is required")
+    @Column(name = "last_name", nullable = true, length = 50)
+//    @NotBlank(message = "Last name is required")
     private String lastName;
 
     @Column(name = "phone_number", length = 20)
@@ -66,7 +66,7 @@ public class User {
     private String zipCode;
 
     @Column(length = 50)
-    private String country = "USA";
+    private String country = "INDIA";
 
     @Column(name = "is_verified")
     private Boolean isVerified = false;

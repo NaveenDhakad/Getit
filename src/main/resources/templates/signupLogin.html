@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<html lang="en"  xmlns:th="http://www.thymeleaf.org"  >
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -483,6 +483,8 @@
 </head>
 
 <body>
+<section  >
+
 <div class="container-fluid min-vh-100 d-flex align-items-center justify-content-center">
     <div class="row justify-content-center align-items-center w-100">
         <!-- Logo Section -->
@@ -546,9 +548,9 @@
                     <h2 class="title animation text-center" style="--i:17; --j:0; ">Sign Up</h2>
                     <form th:action="@{/register}" method="post" th:object="${loginData}">
                         <div class="input-box animation"  style="--i:18; --j:1">
-                            <input  type="text" name ="name" th:value="${loginData.name}"  th:classappend="${#fields.hasErrors('name')} ? 'is-invalid' : ''"    required>
+                            <input  type="text" name ="username" th:value="${loginData.username}"  th:classappend="${#fields.hasErrors('username')} ? 'is-invalid' : ''"    required>
 
-                            <div th:each="e : ${#fields.errors('name')}" th:text="${e}" style="font-size: 12px;" id="validationServer03Feedback" class="invalid-feedback">
+                            <div th:each="e : ${#fields.errors('username')}" th:text="${e}" style="font-size: 12px;" id="validationServer03Feedback" class="invalid-feedback">
 
                             </div>
                             <label>Username</label>
@@ -571,12 +573,12 @@
                             <i class="bx bxs-lock-alt"></i>
                         </div>
                         <div class="input-box animation" style="--i:18; --j:1">
-                            <input type="text"  name="phone" th:value="${loginData.phone}"  required>
+                            <input type="text"  name="phoneNumber" th:value="${loginData.phoneNumber}"  required>
                             <label>Phone</label>
                             <i class='bx  bxs-phone bx-tada '  ></i>
                         </div>
                        <div class="input-box animation" style="--i:18; --j:1">
-                            <input type="text" name="address"  th:value="${loginData.address}"  required>
+                            <input type="text" name="addressLine1"  th:value="${loginData.addressLine1}"  required>
                             <label>Address</label>
                             <i class="bx bxs-location bx-tada " style='color:#000000'></i>
                         </div>
@@ -618,5 +620,7 @@
         }
     });
 </script>
+
+</section>
 </body>
 </html>

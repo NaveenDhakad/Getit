@@ -1,7 +1,5 @@
 package com.GetApp.Get.Entities;
 
-import com.GetApp.Get.Entities.Tool;
-import com.GetApp.Get.Entities.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import org.hibernate.annotations.CreationTimestamp;

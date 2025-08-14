@@ -1,5 +1,6 @@
 package com.GetApp.Get.Entities;
 
+
 import com.GetApp.Get.enums.ConditionRating;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
@@ -7,12 +8,11 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
+
 
 @Entity
 @Table(name = "tools")
