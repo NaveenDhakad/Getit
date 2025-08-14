@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>GETIT - Rent Anything</title>
+	<link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+	<header>
+		<h1>GETIT</h1>
+		<p>Peer-to-Peer rentals. Search and rent nearby.</p>
+	</header>
+	<section>
+		<input id="q" type="text" placeholder="Search items..." />
+		<button onclick="doSearch()">Search</button>
+	</section>
+	<section id="items"></section>
+	<script>
+	async function loadHome(){
+		const res = await fetch('/api/items/home');
+		const items = await res.json();
+		render(items);
+	}
+	async function doSearch(){
+		const q = document.getElementById('q').value;
+		const res = await fetch('/api/items/search?text='+encodeURIComponent(q));
+		render(await res.json());
+	}
+	function render(items){
+		const el = document.getElementById('items');
+		el.innerHTML = items.map(i => `<div class="card"><img src="${i.imageUrl||''}"/><h3>${i.title}</h3><p>${i.description||''}</p><p>Hourly: ₹${i.hourlyPrice} | Daily: ₹${i.dailyPrice}</p></div>`).join('');
+	}
+	loadHome();
+	</script>
+</body>
+</html>
